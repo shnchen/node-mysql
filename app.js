@@ -4,7 +4,7 @@ var http = require('http');
 var token = require('./router/token')
 var upload = require('./router/upload')
 var home = require('./router/home');
-
+var login = require('./router/login')
 
 var app = express();
 app.use('/public',express.static('public'))
@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use('/users',home);
 app.use('/upload',upload);
-
+app.use('/admin-api',login)
 http.createServer(app).listen('9998',function() {
   console.log('服务启动');
 })
